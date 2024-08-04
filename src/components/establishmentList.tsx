@@ -36,7 +36,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import NgandaValues from "@/config";
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import Link from "next/link"
 
 
 
@@ -215,11 +216,16 @@ export const columns: ColumnDef<Establishment>[] = [
               Copy payment ID
             </DropdownMenuItem> */}
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="flex gap-2 text-blue-500">
-              <span>Voir</span>
-              <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
-              </span>
+            <DropdownMenuItem>
+              <Link
+                className="w-full flex gap-3 justify-left text-blue-500"
+                href={`dashboard/establishment/${establishment.id}`}
+              >
+                <span>Voir</span>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
+                </span>
+              </Link>
             </DropdownMenuItem>
             {/* <DropdownMenuItem>View payment details</DropdownMenuItem> */}
           </DropdownMenuContent>
@@ -235,7 +241,7 @@ export function EstablishmentList() {
   const [isLoading, setIsLoading] =useState<boolean>(true);
   const [dataEstablishment, setDataEstablishment] = useState<Establishment[]>([]);
 
-  React.useEffect(()=> {
+  useEffect(()=> {
     const fetchData = async() =>{
       try {
             setIsLoading(true);

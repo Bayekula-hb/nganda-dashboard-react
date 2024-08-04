@@ -10,33 +10,33 @@ export const ListMenu = [
                 </svg>,
     },
     {
-        name: "Ressources Humaines",
-        slug: "human-ressource",
+        name: "Etablissement",
+        slug: "dashboard/establishment",
         icon: <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 14 14"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="3.75" r="2.25"/><path d="M9.5 13.5h-9v-1a4.5 4.5 0 0 1 9 0ZM9 1.5A2.25 2.25 0 0 1 9 6m1.6 2.19a4.5 4.5 0 0 1 2.9 4.2v1.11H12"/></g></svg>
     },
-    {
-        name : "Finance",
-        slug : `finance`,
-        icon : <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 14 14"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7.5v-2a1 1 0 0 0-1-1H1.5a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1H11a1 1 0 0 0 1-1V10M3.84 2L9.51.52a.49.49 0 0 1 .61.36L10.4 2"/><rect width="3.5" height="2.5" x="10" y="7.5" rx=".5"/></g></svg>,
-    },
-    {
-        name: "Dossiers Patients",
-        slug: "folder-patient",
-        icon: <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"><path fill="currentColor" d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h5.175q.4 0 .763.15t.637.425L12 6h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20zm7-3h8v-.55q0-1.125-1.1-1.787T15 14q-1.8 0-2.9.663T11 16.45zm4-4q.825 0 1.413-.587T17 11q0-.825-.587-1.412T15 9q-.825 0-1.412.588T13 11q0 .825.588 1.413T15 13"/></svg>
-    },
-    {
-        name: "Logistique",
-        slug: "logistique",
-        icon: <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" className="bi bi-file-earmark-image-fill me-1  me-1 " href="{{ path('imagery') }} " viewBox="0 0 16 16" >
-                <path d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707v5.586l-2.73-2.73a1 1 0 0 0-1.52.127l-1.889 2.644-1.769-1.062a1 1 0 0 0-1.222.15L2 12.292V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3zm-1.498 4a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z" />
-                <path d="M10.564 8.27 14 11.708V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-.293l3.578-3.577 2.56 1.536 2.426-3.395z" />
-            </svg >
-    },
-    {
-        name: "Exportation des données",
-        slug: "ExportData",
-        icon: <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"><path fill="currentColor" d="M8 16.5v.5c1.691-2.578 3.6-3.953 6-4v3c0 .551.511 1 1.143 1c.364 0 .675-.158.883-.391C17.959 14.58 22 10.5 22 10.5s-4.041-4.082-5.975-6.137A1.262 1.262 0 0 0 15.143 4C14.511 4 14 4.447 14 5v3c-4.66 0-6 4.871-6 8.5M5 21h14a1 1 0 0 0 1-1v-6.046c-.664.676-1.364 1.393-2 2.047V19H6V7h7V5H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1"/></svg>
-    },
+    // {
+    //     name : "Finance",
+    //     slug : `finance`,
+    //     icon : <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 14 14"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7.5v-2a1 1 0 0 0-1-1H1.5a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1H11a1 1 0 0 0 1-1V10M3.84 2L9.51.52a.49.49 0 0 1 .61.36L10.4 2"/><rect width="3.5" height="2.5" x="10" y="7.5" rx=".5"/></g></svg>,
+    // },
+    // {
+    //     name: "Dossiers Patients",
+    //     slug: "folder-patient",
+    //     icon: <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"><path fill="currentColor" d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h5.175q.4 0 .763.15t.637.425L12 6h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20zm7-3h8v-.55q0-1.125-1.1-1.787T15 14q-1.8 0-2.9.663T11 16.45zm4-4q.825 0 1.413-.587T17 11q0-.825-.587-1.412T15 9q-.825 0-1.412.588T13 11q0 .825.588 1.413T15 13"/></svg>
+    // },
+    // {
+    //     name: "Logistique",
+    //     slug: "logistique",
+    //     icon: <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" className="bi bi-file-earmark-image-fill me-1  me-1 " href="{{ path('imagery') }} " viewBox="0 0 16 16" >
+    //             <path d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707v5.586l-2.73-2.73a1 1 0 0 0-1.52.127l-1.889 2.644-1.769-1.062a1 1 0 0 0-1.222.15L2 12.292V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3zm-1.498 4a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z" />
+    //             <path d="M10.564 8.27 14 11.708V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-.293l3.578-3.577 2.56 1.536 2.426-3.395z" />
+    //         </svg >
+    // },
+    // {
+    //     name: "Exportation des données",
+    //     slug: "ExportData",
+    //     icon: <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"><path fill="currentColor" d="M8 16.5v.5c1.691-2.578 3.6-3.953 6-4v3c0 .551.511 1 1.143 1c.364 0 .675-.158.883-.391C17.959 14.58 22 10.5 22 10.5s-4.041-4.082-5.975-6.137A1.262 1.262 0 0 0 15.143 4C14.511 4 14 4.447 14 5v3c-4.66 0-6 4.871-6 8.5M5 21h14a1 1 0 0 0 1-1v-6.046c-.664.676-1.364 1.393-2 2.047V19H6V7h7V5H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1"/></svg>
+    // },
     // {
     //     name: "Facturation et Caisse",
     //     slug: `Facturation`,
