@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
-import "react-toastify/dist/ReactToastify.css"
+import "../../globals.css";
+import SideBarComponent from "@/components/Sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +17,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr-FR">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} text-sm`}>
+        <SideBarComponent>
+          {children}
+        </SideBarComponent>
+      </body>
     </html>
   );
 }

@@ -26,7 +26,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import NgadaValues from "../../src/config"
+import NgadaValues from "../../src/config/index"
 
 
 type Inputs = {
