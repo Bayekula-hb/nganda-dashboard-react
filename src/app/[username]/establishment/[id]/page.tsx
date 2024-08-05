@@ -16,7 +16,7 @@ export type EstablishmentType = {
       address: string
       pos: string
       numberPos: string
-      workers: JSON
+      workers: string
       workingDays: JSON
       isOnDemonstration: boolean
       isActive: number | boolean
@@ -97,6 +97,8 @@ const Establishment = ({
     }
     fetchData();
   }, []);
+   const workers: [] = dataEstablishment && dataEstablishment.etablishment ? JSON.parse(dataEstablishment.etablishment.workers) :  [];
+   const inventoryDrinks = dataEstablishment && dataEstablishment.inventoryDrinks ? dataEstablishment.inventoryDrinks :  [];
 
     return(
         <div>
@@ -125,7 +127,15 @@ const Establishment = ({
                         <span className="font-bold"> Adresse : </span> <span>{dataEstablishment?.etablishment.address}</span>
                       </div>
                       <div className="flex gap-2">
-                        <span className="font-bold"> {"Nombre d'employes"} : </span> <span>{JSON.parse(dataEstablishment?.etablishment.workers).length}</span>
+                        <span className="font-bold"> {"Nombre d'employes"} : </span>
+                        {dataEstablishment && dataEstablishment.etablishment ? 
+                          <span>
+                            {JSON.parse(dataEstablishment.etablishment.workers).length}
+                          </span>
+                          :
+                          <span>
+                          </span>
+                        }
                       </div>
                       <div className="flex gap-2">
                         <span className="font-bold"> {"Active"} : </span> <span>{dataEstablishment?.etablishment.isActive == 0 ? "Non" : "Oui" }</span>
@@ -164,7 +174,7 @@ const Establishment = ({
                     </div>
                   </div>
                   <div className="my-2">
-                    <InventoryDrinkList data={dataEstablishment?.inventoryDrinks} />
+                    <InventoryDrinkList data={inventoryDrinks} />
                   </div>
                 </div>
             }
