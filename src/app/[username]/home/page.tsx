@@ -43,7 +43,7 @@ const Dashboard = ({
       const fetchData = async() =>{
         try {
               setIsLoading(true);
-              const response = await fetch(`${NgandaValues.URL_API_LOCAL}admin/statistics`, {
+              const response = await fetch(`${NgandaValues.URL_API_REMOTE}admin/statistics`, {
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json",

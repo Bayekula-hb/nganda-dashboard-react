@@ -1,5 +1,6 @@
 "use client"
 
+import {  CSSProperties } from "react";
 import * as React from "react"
 import {
   ColumnDef,
@@ -37,10 +38,16 @@ import {
 } from "@/components/ui/table";
 import NgandaValues from "@/config";
 import { useState, useEffect } from "react"
-import Link from "next/link"
+import Link from "next/link";
+import HashLoader from "react-spinners/HashLoader";
 
 
 
+const override: CSSProperties = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "#ffffff",
+};
 export type Payment = {
   id: string
   amount: number
@@ -245,7 +252,7 @@ export function EstablishmentList() {
     const fetchData = async() =>{
       try {
             setIsLoading(true);
-            const response = await fetch(`${NgandaValues.URL_API_LOCAL}admin/establishments/0`, {
+            const response = await fetch(`${NgandaValues.URL_API_REMOTE}admin/establishments/0`, {
               method: 'GET',
               headers: {
                   "Content-Type": "application/json",
@@ -295,122 +302,138 @@ export function EstablishmentList() {
   })
 
   return (
-    <div className="w-full border shadow p-4">
-      <div className="flex items-center py-0">
-        {/* <Input
-          placeholder="Filter emails..."
-          value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("email")?.setFilterValue(event.target.value)
-          }
-          className="max-w-sm"
-        />
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto">
-              Columns <ChevronDown className="ml-2 h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            {table
-              .getAllColumns()
-              .filter((column) => column.getCanHide())
-              .map((column) => {
-                return (
-                  <DropdownMenuCheckboxItem
-                    key={column.id}
-                    className="capitalize"
-                    checked={column.getIsVisible()}
-                    onCheckedChange={(value) =>
-                      column.toggleVisibility(!!value)
-                    }
-                  >
-                    {column.id}
-                  </DropdownMenuCheckboxItem>
-                )
-              })}
-          </DropdownMenuContent>
-        </DropdownMenu> */}
-      </div>
-      <div  className="flex items-center pb-8 pt-2">
-        <h2 className="font-bold text-lg">
-          Tableau des établissements
-        </h2>
-      </div>
-      <div className="rounded-md border">
-        <Table>
-          <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header) => {
-                  return (
-                    <TableHead key={header.id}>
-                      {header.isPlaceholder
-                        ? null
-                        : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
-                    </TableHead>
-                  )
-                })}
-              </TableRow>
-            ))}
-          </TableHeader>
-          <TableBody>
-            {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))
-            ) : (
-              <TableRow>
-                <TableCell
-                  colSpan={columns.length}
-                  className="h-24 text-center"
-                >
-                  No results.
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
-      </div>
-      <div className="flex items-center justify-end space-x-2 py-4">
-        {/* <div className="flex-1 text-sm text-muted-foreground">
-          {table.getFilteredSelectedRowModel().rows.length} of{" "}
-          {table.getFilteredRowModel().rows.length} row(s) selected.
-        </div> */}
-        <div className="space-x-2">
-          <Button
-            variant="outline" 
-            size="sm"
-            onClick={() => table.previousPage()}
-            disabled={!table.getCanPreviousPage()}
-          >
-            Précédent
-          </Button>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => table.nextPage()}
-            disabled={!table.getCanNextPage()}
-          >
-            Suivant
-          </Button>
-        </div>
-      </div>
-    </div>
+    <>
+    {isLoading ?
+                <>
+                  <div className="min-h-[80vh] flex items-center justify-center p-16">
+                      <div className=" ">                          
+                        <HashLoader
+                            color="#2563EB"
+                            loading={isLoading}
+                            cssOverride={override}
+                            size={80}
+                            aria-label="Loading Spinner"
+                            data-testid="loader"
+                        />
+                      </div>
+                  </div>
+                  <div className="z-[3000] bg-primary"></div>
+                </>
+                :
+                <div className="w-full border shadow p-4">
+                  <div className="flex items-center py-0">
+                    {/* <Input
+                      placeholder="Filter emails..."
+                      value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+                      onChange={(event) =>
+                        table.getColumn("email")?.setFilterValue(event.target.value)
+                      }
+                      className="max-w-sm"
+                    />
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button variant="outline" className="ml-auto">
+                          Columns <ChevronDown className="ml-2 h-4 w-4" />
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="end">
+                        {table
+                          .getAllColumns()
+                          .filter((column) => column.getCanHide())
+                          .map((column) => {
+                            return (
+                              <DropdownMenuCheckboxItem
+                                key={column.id}
+                                className="capitalize"
+                                checked={column.getIsVisible()}
+                                onCheckedChange={(value) =>
+                                  column.toggleVisibility(!!value)
+                                }
+                              >
+                                {column.id}
+                              </DropdownMenuCheckboxItem>
+                            )
+                          })}
+                      </DropdownMenuContent>
+                    </DropdownMenu> */}
+                  </div>
+                  <div  className="flex items-center pb-8 pt-2">
+                    <h2 className="font-bold text-lg">
+                      Tableau des établissements
+                    </h2>
+                  </div>
+                  <div className="rounded-md border">
+                    <Table>
+                      <TableHeader>
+                        {table.getHeaderGroups().map((headerGroup) => (
+                          <TableRow key={headerGroup.id}>
+                            {headerGroup.headers.map((header) => {
+                              return (
+                                <TableHead key={header.id}>
+                                  {header.isPlaceholder
+                                    ? null
+                                    : flexRender(
+                                        header.column.columnDef.header,
+                                        header.getContext()
+                                      )}
+                                </TableHead>
+                              )
+                            })}
+                          </TableRow>
+                        ))}
+                      </TableHeader>
+                      <TableBody>
+                        {table.getRowModel().rows?.length ? (
+                          table.getRowModel().rows.map((row) => (
+                            <TableRow
+                              key={row.id}
+                              data-state={row.getIsSelected() && "selected"}
+                            >
+                              {row.getVisibleCells().map((cell) => (
+                                <TableCell key={cell.id}>
+                                  {flexRender(
+                                    cell.column.columnDef.cell,
+                                    cell.getContext()
+                                  )}
+                                </TableCell>
+                              ))}
+                            </TableRow>
+                          ))
+                        ) : (
+                          <TableRow>
+                            <TableCell
+                              colSpan={columns.length}
+                              className="h-24 text-center"
+                            >
+                              No results.
+                            </TableCell>
+                          </TableRow>
+                        )}
+                      </TableBody>
+                    </Table>
+                  </div>
+                  <div className="flex items-center justify-end space-x-2 py-4">
+                    <div className="space-x-2">
+                      <Button
+                        variant="outline" 
+                        size="sm"
+                        onClick={() => table.previousPage()}
+                        disabled={!table.getCanPreviousPage()}
+                      >
+                        Précédent
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => table.nextPage()}
+                        disabled={!table.getCanNextPage()}
+                      >
+                        Suivant
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+      }
+    </>
   )
 }

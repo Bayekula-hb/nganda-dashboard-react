@@ -14,9 +14,7 @@ const SideBarComponent =  ({
   }>) => {
 
     const location = usePathname();
-    const parties = location.split("/");
-    const resultat = parties.pop();
-    console.log(resultat)
+    
     return(
         <div className="flex">
             <div className="w-64 fixed flex-col items-center h-screen z-50 border-r-2 border-gray-700 ">
@@ -26,9 +24,9 @@ const SideBarComponent =  ({
                 >
                     <Image
                         className="h-full max-w-none object-cover"
-                        src={"/img/login.jpg"}
+                        src={"/img/nganda-logo.jpg"}
                         alt="Nganda Tableau de Bord"
-                        width={55}
+                        width={73}
                         height={50}
                     />
                     <h5 className="">Nganda</h5>

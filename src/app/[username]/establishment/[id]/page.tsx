@@ -1,8 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { 
+  CSSProperties,useEffect, useState } from "react";
 import NgandaValues from "../../../../config";
 import BarLoader from 'react-spinners/BarLoader';
+import HashLoader from "react-spinners/HashLoader";
+import { InventoryDrinkList } from "@/components/inventoryDrinkList";
 
 export type EstablishmentType = {
     etablishment: {
@@ -40,15 +43,31 @@ export type EstablishmentType = {
       phoneNumber: string
       email: string
     }[],
+    inventoryDrinks: {
+      id: string
+      price: number
+      quantity: number
+      nameDrink: string
+      imageDrink: string
+      litrage: string
+      typeDrink: string
+    }[]
 
 }
+
+
+const override: CSSProperties = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "#ffffff",
+};
 
 const Establishment = ({
     params
 }: {
     params: { id: string },
 }) => {
-      
+  
   const [isLoading, setIsLoading] =useState<boolean>(true);
   const [dataEstablishment, setDataEstablishment] = useState<EstablishmentType>();
     
@@ -56,7 +75,7 @@ const Establishment = ({
     const fetchData = async() =>{
       try {
             setIsLoading(true);
-            const response = await fetch(`${NgandaValues.URL_API_LOCAL}admin/establishment/${params.id}`, {
+            const response = await fetch(`${NgandaValues.URL_API_REMOTE}admin/establishment/${params.id}`, {
               method: 'GET',
               headers: {
                   "Content-Type": "application/json",
@@ -66,6 +85,7 @@ const Establishment = ({
             if (response.ok) { 
               const dataResponse = await response.json();
               setDataEstablishment(dataResponse.data);
+              console.info(dataResponse.data);
               setIsLoading(false);
             }  else {
               console.error('Erreur lors de la récupération des données');
@@ -81,19 +101,20 @@ const Establishment = ({
     return(
         <div>
             {isLoading ?
-                
                 <>
-                    <div className="h-full flex items-center justify-center p-16">
-                        <div className=" ">
-                          <BarLoader
-                              height="105"
-                              width="105"
-                              color="#CA0B4A"
-                              // ariaLabel="loading"
-                          />
-                        </div>{" "}
-                    </div>
-                    <div className="z-[3000] bg-primary"></div>
+                  <div className="min-h-[80vh] flex items-center justify-center p-16">
+                      <div className=" ">                          
+                        <HashLoader
+                            color="#2563EB"
+                            loading={isLoading}
+                            cssOverride={override}
+                            size={80}
+                            aria-label="Loading Spinner"
+                            data-testid="loader"
+                        />
+                      </div>
+                  </div>
+                  <div className="z-[3000] bg-primary"></div>
                 </>
                 :
                 <div>
@@ -141,6 +162,9 @@ const Establishment = ({
                         </div>
                       </div>
                     </div>
+                  </div>
+                  <div className="my-2">
+                    <InventoryDrinkList data={dataEstablishment?.inventoryDrinks} />
                   </div>
                 </div>
             }

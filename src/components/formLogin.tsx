@@ -72,7 +72,7 @@ const LoginForm = () => {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     setLoadSubmting(true);
-    const response = await fetch(`${NgadaValues.URL_API_LOCAL}auth/login`, {
+    const response = await fetch(`${NgadaValues.URL_API_REMOTE}auth/login`, {
       method: 'POST',
       headers: {
           "Content-Type": "application/json",
@@ -95,13 +95,12 @@ const LoginForm = () => {
         localStorage.setItem("id", data.data.id);
 
         setTimeout(() => {
-            router.push(`/dashboard/${data.data.lastName}`);
+            router.push(`${data.data.lastName}/home`);
         }, 2000);
       } else {
         toast.error("Vous n'etes pas autorise.e a acceder a une application");
         setLoadSubmting(false);
       }
-
     } else {
       toast.error("Nom d'utilisateur ou mot de passe incorrecte");
       setLoadSubmting(false);
