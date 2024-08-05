@@ -51,7 +51,7 @@ const formSchema = z.object({
 
 const LoginForm = () => {
 
-    const router = useRouter()
+  const router = useRouter()
   
   const [loadSubmting, setLoadSubmting] = useState(false);
 
@@ -95,8 +95,11 @@ const LoginForm = () => {
         localStorage.setItem("id", data.data.id);
 
         setTimeout(() => {
-            router.push(`/${data.data.lastName}/dashboard`);
+            router.push(`/dashboard/${data.data.lastName}`);
         }, 2000);
+      } else {
+        toast.error("Vous n'etes pas autorise.e a acceder a une application");
+        setLoadSubmting(false);
       }
 
     } else {

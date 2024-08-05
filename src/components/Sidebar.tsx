@@ -14,7 +14,9 @@ const SideBarComponent =  ({
   }>) => {
 
     const location = usePathname();
-    
+    const parties = location.split("/");
+    const resultat = parties.pop();
+    console.log(resultat)
     return(
         <div className="flex">
             <div className="w-64 fixed flex-col items-center h-screen z-50 border-r-2 border-gray-700 ">
@@ -38,13 +40,13 @@ const SideBarComponent =  ({
                         <ul>
                             {ListMenu.map((item: any, index: number) => (
                                 <li className={`flex space-x-3 w-full items-center my-1 ${location == item.slug || location.includes(item.slug) ? 'bg-blue-100 rounded border-l-4 border-blue-600 text-blue-600 font-medium hover:text-gray-800 hover:border-gray-800' : 'border-l-4 border-transparent  rounded hover:bg-blue-600 hover:text-white'}`} key={index}>
-                                <Link href={`/${typeof window !== 'undefined' ? localStorage.getItem("lastName") : "user"}/${item.slug}`} className={`text-xs flex justify-between mx-3 items-center w-full p-2 `}>
-                                    <span 
-                                    className={`flex items-center gap-4`}>
-                                    {item.icon}
-                                    {item.name}
-                                    </span>
-                                </Link>
+                                    <Link href={`/${typeof window !== 'undefined' ? localStorage.getItem("lastName") : "user"}/${item.slug}`} className={`text-xs flex justify-between mx-3 items-center w-full p-2 `}>
+                                        <span 
+                                        className={`flex items-center gap-4`}>
+                                        {item.icon}
+                                        {item.name}
+                                        </span>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>

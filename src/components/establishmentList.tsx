@@ -204,7 +204,7 @@ export const columns: ColumnDef<Establishment>[] = [
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
+              <span className="sr-only">Ouvrir le menu</span>
               <MoreHorizontal className="h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
@@ -219,7 +219,7 @@ export const columns: ColumnDef<Establishment>[] = [
             <DropdownMenuItem>
               <Link
                 className="w-full flex gap-3 justify-left text-blue-500"
-                href={`dashboard/establishment/${establishment.id}`}
+                href={`establishment/${establishment.id}`}
               >
                 <span>Voir</span>
                 <span>
@@ -388,18 +388,18 @@ export function EstablishmentList() {
         </Table>
       </div>
       <div className="flex items-center justify-end space-x-2 py-4">
-        <div className="flex-1 text-sm text-muted-foreground">
+        {/* <div className="flex-1 text-sm text-muted-foreground">
           {table.getFilteredSelectedRowModel().rows.length} of{" "}
           {table.getFilteredRowModel().rows.length} row(s) selected.
-        </div>
+        </div> */}
         <div className="space-x-2">
           <Button
-            variant="outline"
+            variant="outline" 
             size="sm"
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
           >
-            Previous
+            Précédent
           </Button>
           <Button
             variant="outline"
@@ -407,7 +407,7 @@ export function EstablishmentList() {
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
           >
-            Next
+            Suivant
           </Button>
         </div>
       </div>
