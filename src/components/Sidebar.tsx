@@ -98,7 +98,11 @@ const SideBarComponent =  ({
             </div>
             <div className="sm:hidden z-[200] max-h-24 w-full flex gap-2 justify-between fixed bg-neutral-50 p-4 shadow-md gap-2">
                 <div>
-                    <h1 className="text-lg text-blue-700 italic font-semibold">Nganda</h1>
+                    <Link
+                        href={"/"}
+                    >
+                        <h1 className="text-lg text-blue-700 italic font-semibold">Nganda</h1>
+                    </Link>
                 </div>
                 <div>
                     <Menubar className="">

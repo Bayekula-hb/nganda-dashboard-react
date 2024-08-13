@@ -16,10 +16,10 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex min-h-screen items-center justify-between">
-      <div className="w-1/2 min-h-screen bg-[url('/img/login-pc.jpg')] bg-cover"></div>
-      <div className="w-1/2 flex flex-col items-center py-120">
-        <div className="w-4/5 min-h-max max-h-[50%] shadow-lg p-8 rounded">
+    <main className="bg-[url('/img/login-pc.jpg')] flex flex-col items-center justify-center sm:bg-white sm:flex min-h-screen sm:items-center sm:justify-between">
+      <div className="hidden sm:w-1/2 min-h-screen bg-[url('/img/login-pc.jpg')] bg-cover"></div>
+      <div className="w-5/6 sm:w-1/2 sm:flex sm:flex-col sm:items-center sm:py-120">
+        <div className="sm:w-4/5 min-h-max max-h-[50%] shadow-lg p-8 rounded bg-white">
           <LoginForm />
         </div>
       </div>
