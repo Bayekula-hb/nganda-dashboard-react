@@ -322,54 +322,20 @@ export function EstablishmentList() {
                 :
                 <div className="w-full border shadow p-4">
                   <div className="flex items-center py-0">
-                    {/* <Input
-                      placeholder="Filter emails..."
-                      value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-                      onChange={(event) =>
-                        table.getColumn("email")?.setFilterValue(event.target.value)
-                      }
-                      className="max-w-sm"
-                    />
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <Button variant="outline" className="ml-auto">
-                          Columns <ChevronDown className="ml-2 h-4 w-4" />
-                        </Button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end">
-                        {table
-                          .getAllColumns()
-                          .filter((column) => column.getCanHide())
-                          .map((column) => {
-                            return (
-                              <DropdownMenuCheckboxItem
-                                key={column.id}
-                                className="capitalize"
-                                checked={column.getIsVisible()}
-                                onCheckedChange={(value) =>
-                                  column.toggleVisibility(!!value)
-                                }
-                              >
-                                {column.id}
-                              </DropdownMenuCheckboxItem>
-                            )
-                          })}
-                      </DropdownMenuContent>
-                    </DropdownMenu> */}
                   </div>
                   <div  className="flex items-center pb-8 pt-2">
-                    <h2 className="font-bold text-lg">
+                    <h2 className="font-bold text-md sm:text-lg">
                       Tableau des établissements
                     </h2>
                   </div>
                   <div className="rounded-md border">
-                    <Table>
+                    <Table className="text-md sm:text-lg">
                       <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (
                           <TableRow key={headerGroup.id}>
                             {headerGroup.headers.map((header) => {
                               return (
-                                <TableHead key={header.id}>
+                                <TableHead key={header.id} className=" text-md sm:text-lg">
                                   {header.isPlaceholder
                                     ? null
                                     : flexRender(
@@ -412,7 +378,7 @@ export function EstablishmentList() {
                       </TableBody>
                     </Table>
                   </div>
-                  <div className="flex items-center justify-end space-x-2 py-4">
+                  <div className="flex items-center justify-end space-x-2 py-4 ">
                     <div className="space-x-2">
                       <Button
                         variant="outline" 

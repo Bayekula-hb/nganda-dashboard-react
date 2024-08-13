@@ -154,109 +154,12 @@ export function HistoricDrinkEstablishmentList({ historicDrink } : { historicDri
 
   return (
     <>
-    {/* {isLoading ?
-                <>
-                  <div className="min-h-[80vh] flex items-center justify-center p-16">
-                      <div className=" ">                          
-                        <HashLoader
-                            color="#2563EB"
-                            loading={isLoading}
-                            cssOverride={override}
-                            size={80}
-                            aria-label="Loading Spinner"
-                            data-testid="loader"
-                        />
-                      </div>
-                  </div>
-                  <div className="z-[3000] bg-primary"></div>
-                </>
-                :
-                <div className="w-full border shadow p-4">
-                  <div className="flex items-center py-0">
-                  </div>
-                  <div  className="flex items-center pb-8 pt-2">
-                    <h2 className="font-bold text-lg">
-                      {"Tableau des opérations d'entrée-sortie"}
-                    </h2>
-                  </div>
-                  <div className="rounded-md border">
-                    <Table>
-                      <TableHeader>
-                        {table.getHeaderGroups().map((headerGroup) => (
-                          <TableRow key={headerGroup.id}>
-                            {headerGroup.headers.map((header) => {
-                              return (
-                                <TableHead key={header.id}>
-                                  {header.isPlaceholder
-                                    ? null
-                                    : flexRender(
-                                        header.column.columnDef.header,
-                                        header.getContext()
-                                      )}
-                                </TableHead>
-                              )
-                            })}
-                          </TableRow>
-                        ))}
-                      </TableHeader>
-                      <TableBody>
-                        {table.getRowModel().rows?.length ? (
-                          table.getRowModel().rows.map((row) => (
-                            <TableRow
-                              key={row.id}
-                              data-state={row.getIsSelected() && "selected"}
-                            >
-                              {row.getVisibleCells().map((cell) => (
-                                <TableCell key={cell.id}>
-                                  {flexRender(
-                                    cell.column.columnDef.cell,
-                                    cell.getContext()
-                                  )}
-                                </TableCell>
-                              ))}
-                            </TableRow>
-                          ))
-                        ) : (
-                          <TableRow>
-                            <TableCell
-                              colSpan={columns.length}
-                              className="h-24 text-center"
-                            >
-                              No results.
-                            </TableCell>
-                          </TableRow>
-                        )}
-                      </TableBody>
-                    </Table>
-                  </div>
-                  <div className="flex items-center justify-end space-x-2 py-4">
-                    <div className="space-x-2">
-                      <Button
-                        variant="outline" 
-                        size="sm"
-                        onClick={() => table.previousPage()}
-                        disabled={!table.getCanPreviousPage()}
-                      >
-                        Précédent
-                      </Button>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => table.nextPage()}
-                        disabled={!table.getCanNextPage()}
-                      >
-                        Suivant
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-    } */}
     
       <div className="w-full border shadow p-4">
         <div className="flex items-center py-0">
         </div>
         <div  className="flex items-center pb-8 pt-2">
-          <h2 className="font-bold text-lg">
+          <h2 className="font-bold text-md sm:text-lg">
             {"Tableau des opérations d'entrée-sortie"}
           </h2>
         </div>
@@ -267,7 +170,7 @@ export function HistoricDrinkEstablishmentList({ historicDrink } : { historicDri
                 <TableRow key={headerGroup.id}>
                   {headerGroup.headers.map((header) => {
                     return (
-                      <TableHead key={header.id}>
+                      <TableHead key={header.id} className=" text-md sm:text-lg">
                         {header.isPlaceholder
                           ? null
                           : flexRender(

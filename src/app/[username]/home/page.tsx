@@ -205,7 +205,7 @@ const Dashboard = ({
             "" :
             <>
               <SaleList saleProducts={data.saleProducts} />
-              <div className="mt-4">                  
+              <div className="my-4 mt-4 sm:my-0">                  
                 <HistoricDrinkList historicDrink={data.historicDrinks} />
               </div>
             </>

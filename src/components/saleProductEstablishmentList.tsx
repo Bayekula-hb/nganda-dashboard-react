@@ -128,32 +128,6 @@ export function SaleProductEstablishmentList({ saleProducts } : { saleProducts :
   
   const [dataSale, setDataSale] = useState<Sale[]>(saleProducts);
 
-  // useEffect(()=> {
-  //   const fetchData = async() =>{
-  //     try {
-  //           setIsLoading(true);
-  //           const response = await fetch(`${NgandaValues.URL_API_REMOTE}admin/establishments/0`, {
-  //             method: 'GET',
-  //             headers: {
-  //                 "Content-Type": "application/json",
-  //                 "Authorization": "Bearer " + localStorage.getItem("token"),
-  //             },
-  //           });
-  //           if (response.ok) { 
-  //             const dataResponse = await response.json();
-  //             setDataSale(dataResponse.data.data);
-  //             setIsLoading(false);
-  //           }  else {
-  //             console.error('Erreur lors de la récupération des données');
-  //           }
-      
-  //     } catch (error) {          
-  //       console.error('Erreur lors de la récupération des données :', error);
-  //     }
-  //   }
-  //   fetchData();
-  // }, []);
-
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -187,7 +161,7 @@ export function SaleProductEstablishmentList({ saleProducts } : { saleProducts :
         <div className="flex items-center py-0">
         </div>
         <div  className="flex items-center pb-8 pt-2">
-          <h2 className="font-bold text-lg">
+          <h2 className="font-bold text-md sm:text-lg">
             Tableau des ventes
           </h2>
         </div>
@@ -198,7 +172,7 @@ export function SaleProductEstablishmentList({ saleProducts } : { saleProducts :
                 <TableRow key={headerGroup.id}>
                   {headerGroup.headers.map((header) => {
                     return (
-                      <TableHead key={header.id}>
+                      <TableHead key={header.id} className=" text-md sm:text-lg">
                         {header.isPlaceholder
                           ? null
                           : flexRender(

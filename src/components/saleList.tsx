@@ -194,11 +194,11 @@ export function SaleList({ saleProducts } : { saleProducts : Sale[]}) {
         <div className="flex items-center py-0">
         </div>
         <div  className="flex items-center pb-8 pt-2">
-          <h2 className="font-bold text-lg">
+          <h2 className="font-bold text-md sm:text-lg">
             Tableau des ventes
           </h2>
         </div>
-        <div className="rounded-md border">
+        <div className="rounded-md border text-md sm:text-lg">
           <Table>
             <TableHeader>
               {table.getHeaderGroups().map((headerGroup) => (
@@ -218,7 +218,7 @@ export function SaleList({ saleProducts } : { saleProducts : Sale[]}) {
                 </TableRow>
               ))}
             </TableHeader>
-            <TableBody>
+            <TableBody className=" text-md sm:text-lg">
               {table.getRowModel().rows?.length ? (
                 table.getRowModel().rows.map((row) => (
                   <TableRow
