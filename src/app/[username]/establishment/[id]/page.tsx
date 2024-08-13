@@ -6,6 +6,8 @@ import NgandaValues from "../../../../config";
 import BarLoader from 'react-spinners/BarLoader';
 import HashLoader from "react-spinners/HashLoader";
 import { InventoryDrinkList } from "@/components/inventoryDrinkList";
+import { SaleProductEstablishmentList } from "@/components/saleProductEstablishmentList";
+import { HistoricDrinkEstablishmentList } from "@/components/historicDrinkEstablishmentList";
 
 export type EstablishmentType = {
     etablishment: {
@@ -51,6 +53,29 @@ export type EstablishmentType = {
       imageDrink: string
       litrage: string
       typeDrink: string
+    }[],
+    sales : {
+      sale_id: number
+      sale_quantity: number
+      establishment_id: number
+      nameEtablishment: string
+      sale_created_at: string
+      nameDrink: string
+      drink_id: number
+      drink_price: number
+      typeDrink: string
+      inventory_drink_id: number
+    }[],
+    historicInventoryDrinks : {
+      historic_inventory_drinks_id: number
+      historic_inventory_drinks_quantity: number
+      historic_inventory_drinks_price: number
+      historic_inventory_drinks_created_at: string
+      historic_inventory_drinks_type_operator: string
+      drink_id: number
+      nameDrink: string
+      typeDrink: string
+      nameEtablishment: string
     }[]
 
 }
@@ -99,6 +124,8 @@ const Establishment = ({
   }, []);
    const workers: [] = dataEstablishment && dataEstablishment.etablishment ? JSON.parse(dataEstablishment.etablishment.workers) :  [];
    const inventoryDrinks = dataEstablishment && dataEstablishment.inventoryDrinks ? dataEstablishment.inventoryDrinks :  [];
+   const sales = dataEstablishment && dataEstablishment.sales ? dataEstablishment.sales :  [];
+   const historicDrinks = dataEstablishment && dataEstablishment.historicInventoryDrinks ? dataEstablishment.historicInventoryDrinks :  [];
 
     return(
         <div>
@@ -174,7 +201,13 @@ const Establishment = ({
                     </div>
                   </div>
                   <div className="my-2">
+                    <SaleProductEstablishmentList saleProducts={sales} />
+                  </div>
+                  <div className="my-2">
                     <InventoryDrinkList data={inventoryDrinks} />
+                  </div>
+                  <div className="my-2">
+                    <HistoricDrinkEstablishmentList historicDrink={historicDrinks} />
                   </div>
                 </div>
             }

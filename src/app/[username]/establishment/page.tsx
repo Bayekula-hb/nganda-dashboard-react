@@ -1,9 +1,10 @@
+import { EstablishmentList } from "@/components/establishmentList";
 
 const Establishment = () => {
 
     return(
         <div>
-            <p>Establishment</p>
+            <EstablishmentList />
         </div>
     )
 }
