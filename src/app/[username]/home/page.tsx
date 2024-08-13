@@ -4,6 +4,8 @@ import { EstablishmentList } from "@/components/establishmentList"
 import { useEffect, useState } from "react"
 import NgandaValues from "@/config";
 import CardDash from "@/components/CardDash";
+import { SaleList } from "@/components/saleList";
+import { HistoricDrinkList } from "@/components/historicDrinkList";
 
 
 export type Establishment = {
@@ -21,21 +23,54 @@ export type Establishment = {
   subscriptionExpiryDate: string
   settings: JSON
 }
-
+export type Sale = {
+  sale_id: number
+  sale_quantity: number
+  establishment_id: number
+  nameEtablishment: string
+  sale_created_at: string
+  nameDrink: string
+  drink_id: number
+  drink_price: number
+  typeDrink: string
+  inventory_drink_id: number
+}
+export type HistoricDrink = {
+  historic_inventory_drinks_id: number
+  historic_inventory_drinks_quantity: number
+  historic_inventory_drinks_price: number
+  historic_inventory_drinks_created_at: string
+  historic_inventory_drinks_type_operator: string
+  drink_id: number
+  nameDrink: string
+  typeDrink: string
+  nameEtablishment: string
+}
 export type Statistics = {
   etablishments: number
   users: number
   sales: number
   drinks: number
+  saleProducts: Sale[]
+  historicDrinks: HistoricDrink[]
 }
-
 
 const Dashboard = ({
     params
   }: Readonly<{
     params: { userName: string }
   }>) => {
-    const [data, setData] = useState<Statistics>();
+
+    const statisticDataInit : Statistics = {
+      etablishments : 0,
+      users : 0,
+      sales : 0,
+      drinks : 0,
+      saleProducts : [],
+      historicDrinks : [],
+    }
+    const [data, setData] = useState<Statistics>(statisticDataInit);
+
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
@@ -107,9 +142,6 @@ const Dashboard = ({
     return(
         <div className="py-1">
           <div className="flex flex-col sm:flex-row max-w-100 gap-4 mb-4 mt-4">
-              {/* {listCardElements.map(({cardColor, cardIcon, cardTitle, cardNumber, cardDif}, index: number) =>{
-                  return (<CardDash key={index} cardColor={cardColor} cardIcon={cardIcon} cardTitle={cardTitle} cardNumber={cardNumber} cardDif={cardDif} />);
-              })} */}
             <div className={`bg-green-500 shadow rounded-md p-4 w-full sm:w-1/4 mw-50`}>
                 <div className={`flex flex-row justify-between gap-5 items-center text-gray-500`}>
                     <div className="flex flex-row items-center gap-3">
@@ -168,6 +200,17 @@ const Dashboard = ({
                 </div>
             </div>
           </div>
+          {
+            isLoading ?
+            "" :
+            <>
+              <SaleList saleProducts={data.saleProducts} />
+              <div className="mt-4">                  
+                <HistoricDrinkList historicDrink={data.historicDrinks} />
+              </div>
+            </>
+          
+          }
           <EstablishmentList />
         </div>
     )
