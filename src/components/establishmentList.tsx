@@ -329,13 +329,13 @@ export function EstablishmentList() {
                     </h2>
                   </div>
                   <div className="rounded-md border">
-                    <Table className="text-md sm:text-lg">
+                    <Table className="text-sm sm:text-md">
                       <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (
                           <TableRow key={headerGroup.id}>
                             {headerGroup.headers.map((header) => {
                               return (
-                                <TableHead key={header.id} className=" text-md sm:text-lg">
+                                <TableHead key={header.id} className=" text-sm sm:text-m">
                                   {header.isPlaceholder
                                     ? null
                                     : flexRender(

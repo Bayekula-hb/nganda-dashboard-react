@@ -135,32 +135,6 @@ export function SaleList({ saleProducts } : { saleProducts : Sale[]}) {
   
   const [dataSale, setDataSale] = useState<Sale[]>(saleProducts);
 
-  // useEffect(()=> {
-  //   const fetchData = async() =>{
-  //     try {
-  //           setIsLoading(true);
-  //           const response = await fetch(`${NgandaValues.URL_API_REMOTE}admin/establishments/0`, {
-  //             method: 'GET',
-  //             headers: {
-  //                 "Content-Type": "application/json",
-  //                 "Authorization": "Bearer " + localStorage.getItem("token"),
-  //             },
-  //           });
-  //           if (response.ok) { 
-  //             const dataResponse = await response.json();
-  //             setDataSale(dataResponse.data.data);
-  //             setIsLoading(false);
-  //           }  else {
-  //             console.error('Erreur lors de la récupération des données');
-  //           }
-      
-  //     } catch (error) {          
-  //       console.error('Erreur lors de la récupération des données :', error);
-  //     }
-  //   }
-  //   fetchData();
-  // }, []);
-
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -198,7 +172,7 @@ export function SaleList({ saleProducts } : { saleProducts : Sale[]}) {
             Tableau des ventes
           </h2>
         </div>
-        <div className="rounded-md border text-md sm:text-lg">
+        <div className="rounded-md border text-sm sm:text-md">
           <Table>
             <TableHeader>
               {table.getHeaderGroups().map((headerGroup) => (
@@ -218,7 +192,7 @@ export function SaleList({ saleProducts } : { saleProducts : Sale[]}) {
                 </TableRow>
               ))}
             </TableHeader>
-            <TableBody className=" text-md sm:text-lg">
+            <TableBody className="text-sm sm:text-md">
               {table.getRowModel().rows?.length ? (
                 table.getRowModel().rows.map((row) => (
                   <TableRow

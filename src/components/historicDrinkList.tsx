@@ -163,7 +163,7 @@ export function HistoricDrinkList({ historicDrink } : { historicDrink : Historic
           </h2>
         </div>
         <div className="rounded-md border">
-          <Table className="text-md sm:text-lg">
+          <Table className="text-sm sm:text-md">
             <TableHeader>
               {table.getHeaderGroups().map((headerGroup) => (
                 <TableRow key={headerGroup.id}>

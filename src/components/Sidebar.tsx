@@ -47,8 +47,8 @@ const SideBarComponent =  ({
                     <h5 className="">Nganda</h5>
                 </Link>
 
-                <div className="self-center content-center">
-                    <div>
+                <div className="w-full self-center content-center">
+                    <div className="">
                         <h5 className="my-1 mx-4 text-gray-500 font-medium p-2 uppercase space-x-3">Menu principal</h5>       
                         <ul>
                             {ListMenu.map((item: any, index: number) => (
@@ -83,7 +83,7 @@ const SideBarComponent =  ({
                     </div> */}
                 </div>
             </div>
-            <div className="hidden sm:flex md:ml-64 pl-[1.8px] max-h-2.5 w-full">
+            <div className="hidden sm:flex md:ml-64 pl-[1.8px] max-h-2.5">
                 <div className="z-50 z-[200] fixed bg-neutral-50 p-2 px-6 w-5/6 shadow-md gap-2 flex items-center justify-end">
                     {/* <div className="w-1/4">
                         <SearchBarComponent />
@@ -92,11 +92,11 @@ const SideBarComponent =  ({
                         <ProfilComponent />
                     </div>
                 </div>
-                <div className=" mt-20 mt-[5rem] px-4 ">
+                <div className="mt-20 mt-[5rem] px-4 ">
                     {children}
                 </div>
             </div>
-            <div className="sm:hidden  z-[200] max-h-24 w-full flex gap-2 justify-between fixed bg-neutral-50 p-4 shadow-md gap-2">
+            <div className="sm:hidden z-[200] max-h-24 w-full flex gap-2 justify-between fixed bg-neutral-50 p-4 shadow-md gap-2">
                 <div>
                     <h1 className="text-lg text-blue-700 italic font-semibold">Nganda</h1>
                 </div>
@@ -123,14 +123,6 @@ const SideBarComponent =  ({
                                     {/* <MenubarSeparator /> */}
                                     </>
                                 ))}
-                                {/* <MenubarItem>
-                                    New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-                                </MenubarItem>
-                                <MenubarItem>New Window</MenubarItem>
-                                <MenubarSeparator />
-                                <MenubarItem>Share</MenubarItem> */}
-                                {/* <MenubarSeparator />
-                                <MenubarItem>Print</MenubarItem> */}
                             </MenubarContent>
                         </MenubarMenu>
                     </Menubar>
@@ -139,7 +131,7 @@ const SideBarComponent =  ({
             </div>
             <div className="max-w-screen-sm overflow-x-scroll flex flex-col gap-2 sm:hidden">
                 
-                <div className=" mt-20 mt-[5rem] px-4">
+                <div className="mt-20 mt-[5rem] px-4">
                     {children}
                 </div>
             </div>

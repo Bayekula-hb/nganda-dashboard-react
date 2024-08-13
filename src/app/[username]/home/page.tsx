@@ -140,7 +140,7 @@ const Dashboard = ({
     ];
 
     return(
-        <div className="py-1">
+        <div className="w-full py-1">
           <div className="flex flex-col sm:flex-row max-w-100 gap-4 mb-4 mt-4">
             <div className={`bg-green-500 shadow rounded-md p-4 w-full sm:w-1/4 mw-50`}>
                 <div className={`flex flex-row justify-between gap-5 items-center text-gray-500`}>
@@ -205,7 +205,7 @@ const Dashboard = ({
             "" :
             <>
               <SaleList saleProducts={data.saleProducts} />
-              <div className="my-4 mt-4 sm:my-0">                  
+              <div className="my-4">                  
                 <HistoricDrinkList historicDrink={data.historicDrinks} />
               </div>
             </>

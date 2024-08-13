@@ -170,7 +170,7 @@ export function HistoricDrinkEstablishmentList({ historicDrink } : { historicDri
                 <TableRow key={headerGroup.id}>
                   {headerGroup.headers.map((header) => {
                     return (
-                      <TableHead key={header.id} className=" text-md sm:text-lg">
+                      <TableHead key={header.id} className="text-sm sm:text-md">
                         {header.isPlaceholder
                           ? null
                           : flexRender(

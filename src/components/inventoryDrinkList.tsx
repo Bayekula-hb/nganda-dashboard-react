@@ -122,7 +122,7 @@ export function InventoryDrinkList({ data }: { data: inventoryDrinks[] }) {
   return (
     <div className="w-full border shadow p-4 rounded my-4">
       <div className="flex items-center pb-2 pt-2">
-        <h2 className="font-bold  text-md sm:text-lg">
+        <h2 className="font-bold text-md sm:text-lg">
           Tableau des produits
         </h2>
       </div>
@@ -133,7 +133,7 @@ export function InventoryDrinkList({ data }: { data: inventoryDrinks[] }) {
           onChange={(event) =>
             table.getColumn("nameDrink")?.setFilterValue(event.target.value)
           }
-          className="max-w-sm  text-md sm:text-lg"
+          className="max-w-sm text-md"
         />
       </div>
       <div className="rounded-md border">
@@ -186,7 +186,7 @@ export function InventoryDrinkList({ data }: { data: inventoryDrinks[] }) {
           </TableBody>
         </Table>
       </div>
-      <div className="flex items-center justify-end space-x-2 py-4 text-md sm:text-lg">
+      <div className="flex items-center justify-end space-x-2 py-4 text-md">
         <div className="space-x-2">
           <Button
             variant="outline" 
