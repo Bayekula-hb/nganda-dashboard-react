@@ -66,6 +66,7 @@ export type Sale = {
   drink_price: number
   typeDrink: string
   inventory_drink_id: number
+  total_amount_sold: number
 }
 
 export const columns: ColumnDef<Sale>[] = [
@@ -105,13 +106,20 @@ export const columns: ColumnDef<Sale>[] = [
       <div className="capitalize">{row.getValue("sale_quantity")}</div>
     ),
   },
+  // {
+  //   accessorKey: "total",
+  //   header: "Total payé",
+  //   cell: ({ row }) => {
+  //     const drink_price: number = row.original.drink_price;
+  //     const sale_quantity: number = row.original.sale_quantity;
+  //     return <div className="capitalize">{sale_quantity * drink_price} Fc</div>
+  //   },
+  // },
   {
-    accessorKey: "total",
+    accessorKey: "total_amount_sold",
     header: "Total payé",
     cell: ({ row }) => {
-      const drink_price: number = row.original.drink_price;
-      const sale_quantity: number = row.original.sale_quantity;
-      return <div className="capitalize">{sale_quantity * drink_price} Fc</div>
+      return <div className="capitalize">{row.getValue("total_amount_sold")} Fc</div>
     },
   },
   {

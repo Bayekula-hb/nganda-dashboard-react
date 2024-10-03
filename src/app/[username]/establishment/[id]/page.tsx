@@ -65,6 +65,7 @@ export type EstablishmentType = {
       drink_price: number
       typeDrink: string
       inventory_drink_id: number
+      total_amount_sold: number
     }[],
     historicInventoryDrinks : {
       historic_inventory_drinks_id: number
@@ -76,7 +77,8 @@ export type EstablishmentType = {
       nameDrink: string
       typeDrink: string
       nameEtablishment: string
-    }[]
+    }[],
+    totalAmountSold: number
 
 }
 
@@ -148,8 +150,8 @@ const Establishment = ({
                 :
                 <div>
                   <p className="text-lg">Etablissement : <span className="uppercase text-green-500 font-bold">{dataEstablishment?.etablishment.nameEtablishment}</span></p>
-                  <div className="flex gap-4">
-                    <div className="flex flex-col gap-4 justify-between  gap-2 border rounded shadow-lg w-1/2 mt-4 p-4">
+                  <div className="flex flex-col md:flex-row gap-4">
+                    <div className="flex flex-col gap-4 justify-between md:gap-2 border rounded shadow-lg p-4 mt-2 md:w-1/2 md:mt-4 md:p-4">
                       <div className="flex gap-2">
                         <span className="font-bold"> Adresse : </span> <span>{dataEstablishment?.etablishment.address}</span>
                       </div>
@@ -174,7 +176,7 @@ const Establishment = ({
                         <span className="font-bold"> Longitude : </span> <span>{dataEstablishment?.etablishment.longitude}</span>
                       </div>
                     </div>
-                    <div className="flex flex-col gap-4  gap-2 border rounded shadow-lg w-1/2 mt-4 p-4">
+                    <div className="flex flex-col gap-4  gap-2 border rounded shadow-lg p-4 mt-2 md:w-1/2 md:mt-4 md:p-4">
                       <div>
                         <h4 className="text-lg font-semibold italic">Information du propriétaire</h4>
                       </div>
@@ -200,6 +202,12 @@ const Establishment = ({
                       </div>
                     </div>
                   </div>
+                  
+                  <div  className="w-full border shadow flex gap-2 items-center p-4 mt-4">
+                    <h3 className="font-bold text-md sm:text-lg">Total Vendu :</h3>
+                    <h3 className="font-bold text-md text-red-500 sm:text-lg"> {dataEstablishment?.totalAmountSold ?? 0} Fc </h3>
+                  </div>
+
                   <div className="my-2">
                     <SaleProductEstablishmentList saleProducts={sales} />
                   </div>
